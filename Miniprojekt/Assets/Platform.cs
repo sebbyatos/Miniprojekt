@@ -34,4 +34,12 @@ public class Platform : MonoBehaviour, IInteractable
     public void Interact() {
         isActivated = true;
     }
+
+    private void OnCollisionEnter(Collision other) {
+        other.transform.parent = transform;
+    }
+
+    private void OnCollisionExit(Collision other) {
+        other.transform.parent = null;
+    }
 }
